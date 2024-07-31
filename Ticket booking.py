@@ -5,7 +5,7 @@ print("___________Welcome To Fast&Safe Bus__________")
 print("__________Bus Ticket Booking__________")
 
 # sign up
-print("Sign up")
+print("SIGN UP")
 username=input("username:")
 age=int(input("userage:"))
 gender=input("male/female/other:")
@@ -47,7 +47,7 @@ while True:
         print("Both Password Or Not Same")
 
 # sign in    
-print("Sign in")
+print("SIGN IN")
 while True:
     login=input("username:")
     login_pass=input("password:")
