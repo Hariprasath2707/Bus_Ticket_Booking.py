@@ -1,19 +1,43 @@
-from twilio.rest import Client
+#from twilio.rest import Client
+import pywhatkit
 import random
 # Welcome message
 print("___________Welcome To Fast&Safe Bus__________")
 print("__________Bus Ticket Booking__________")
 
+# Gender Check
+def get_gender_input():
+    valid_inputs = ["male", "female", "other"]
+    
+    while True:
+        gender = input("Please enter your gender (male, female, other): ").strip().lower()
+        if gender in valid_inputs:
+            return gender
+        else:
+            print("Invalid input. Please enter 'male', 'female', or 'other'.")
+
+# Email Check
+def get_email_input():
+    valid_input = input("Email for ex(example@gmail.com):").strip().lower()
+    while True:
+        if valid_input.endswith("@gmail.com"):
+            return valid_input
+            break
+        else:
+            print("invalid input.please enter like example@gmail.com")
+            valid_input = input("Email for ex(example@gmail.com):").strip().lower()
+
+
 # sign up
 print("SIGN UP")
 username=input("username:")
 age=int(input("userage:"))
-gender=input("male/female/other:")
-email=input("email:")
+gender=get_gender_input()
+email=get_email_input()
 number_=(input("Enter Your Mobile Number:"))
 
 # OTP
-otp=random.randint(1000,9999)
+'''otp=random.randint(1000,9999)
 
 
 # Your Account SID and Auth Token from twilio.com/console
@@ -25,8 +49,13 @@ message = client.messages.create(
     body=f'Hello from Fast&safe Bus!{otp}',
     from_='+18576883547',  # Your Twilio number
     to= number_     # The recipient's phone number
-)
+)'''
 
+# OTP
+otp = random.randint(1000, 9999)
+
+message = f"Dear :{username} We thank you for your registration at BlueBuss Online Buss Ticket Booking. Your Verification OTP code is: {otp}. You will use this user id given above for all your transactions on www.bluebuss.co.in. The user id cannot be changed and hence we recommend that you store this email for your future reference."
+pywhatkit.sendwhatmsg_instantly(number_, message)
 
 while True:
     otpin=int(input("Enter Your Otp :"))
