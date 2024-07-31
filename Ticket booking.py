@@ -58,6 +58,7 @@ while True:
          print("username or password is wrong")
 
 #booking page
+#route1
 print("!!!!!BOOK NOW!!!!!")
 class route1():
     def chennai_to_trichy(self):
@@ -166,6 +167,8 @@ class route1():
                 break
             else:
                 print("enter your correct route")
+
+#route2
 class route2(route1):
     def chennai_to_pudhuchery(self):
         print("!!!!!BOOK NOW!!!!!")
@@ -261,6 +264,9 @@ class route2(route1):
             else:
                 print("enter your correct route")
                 break
+
+
+#route3
 class route3(route2):
     def chennai_to_madurai(self):
         print("!!!!!BOOK NOW!!!!!")
@@ -355,6 +361,8 @@ class route3(route2):
             else:
                 print("enter your correct route")
                 break
+
+#bus routes            
 obj=route3()
 print("1)chennai to trichy")
 print("2)chennai to pudhuchery")
