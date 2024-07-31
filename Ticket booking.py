@@ -1,12 +1,42 @@
-#login page
+from twilio.rest import Client
+import random
+# Welcome message
 print("___________Welcome To Fast&Safe Bus__________")
 print("__________Bus Ticket Booking__________")
+
+# sign up
 print("Sign up")
 username=input("username:")
 age=int(input("userage:"))
 gender=input("male/female/other:")
 email=input("email:")
-number_=int(input("Enter Your Mobile Number:"))
+number_=(input("Enter Your Mobile Number:"))
+
+# OTP
+otp=random.randint(1000,9999)
+
+
+# Your Account SID and Auth Token from twilio.com/console
+account_sid = 'AC346175b44eb19d0a6bd9c9d7873dbdf7'
+auth_token = '9c70d107c2d58ccf23050bc9ccfe01df'
+client = Client(account_sid, auth_token)
+
+message = client.messages.create(
+    body=f'Hello from Fast&safe Bus!{otp}',
+    from_='+18576883547',  # Your Twilio number
+    to= number_     # The recipient's phone number
+)
+
+
+while True:
+    otpin=int(input("Enter Your Otp :"))
+    if otpin == otp:
+        print("OTP ! Mached")
+        break
+    else:
+        print("incorrect otp")
+
+# password validation
 while True:
     password=input("password:")
     re_password=input("re_enter password:")
@@ -14,7 +44,9 @@ while True:
          print("SUCCESSESFULLY REGISTER")
          break
     else:
-        print("Both Password Or Not Same")    
+        print("Both Password Or Not Same")
+
+# sign in    
 print("Sign in")
 while True:
     login=input("username:")
@@ -24,6 +56,7 @@ while True:
          break
     else:
          print("username or password is wrong")
+
 #booking page
 print("!!!!!BOOK NOW!!!!!")
 class route1():
@@ -46,6 +79,7 @@ class route1():
                         break
                     else:
                         print("@ payment amount was wroung @","pay the correct amount and confirm your ticket",",")
+                break
             elif(from_=="chennai" and to_=="ulundurpet"):
                 details22={"bus_no":"301",
                         "pickuptime":"8.30",
@@ -59,6 +93,7 @@ class route1():
                         break
                     else:
                         print("@ payment amount was wroung @","pay the correct amount and confirm your ticket",",")
+                break
             elif(from_=="chennai" and to_=="villuppuram"):
                 details23={"bus_no":"301",
                         "pickuptime":"8.30",
@@ -72,6 +107,7 @@ class route1():
                         break
                     else:
                         print("@ payment amount was wroung @","pay the correct amount and confirm your ticket",",")
+                break
             elif(from_=="chennai" and to_=="thindivanam"):
                 details24={"bus_no":"301",
                         "pickuptime":"8.30",
@@ -85,6 +121,7 @@ class route1():
                         break
                     else:
                         print("@ payment amount was wroung @","pay the correct amount and confirm your ticket",",")
+                break
             elif(from_=="chennai" and to_=="melmaruvathur"):
                 details25={"bus_no":"301",
                         "pickuptime":"8.30",
@@ -98,6 +135,7 @@ class route1():
                         break
                     else:
                         print("@ payment amount was wroung @","pay the correct amount and confirm your ticket",",")
+                break
             elif(from_=="chennai" and to_=="chengalpet"):
                 details26={"bus_no":"301",
                         "pickuptime":"8.30",
@@ -111,6 +149,7 @@ class route1():
                         break
                     else:
                         print("@ payment amount was wroung @","pay the correct amount and confirm your ticket",",")
+                break
             elif(from_=="chennai" and to_=="kilambakkam"):
                 details27={"bus_no":"301",
                         "pickuptime":"8.30",
@@ -147,6 +186,7 @@ class route2(route1):
                         break
                     else:
                         print("@ payment amount was wroung @","pay the correct amount and confirm your ticket",",")
+                break
             elif(from_=="chennai" and to_=="marakkanam"):
                 details12={"bus_no":"302",
                         "pickuptime":"8.30",
@@ -160,6 +200,7 @@ class route2(route1):
                         break
                     else:
                         print("@ payment amount was wroung @","pay the correct amount and confirm your ticket",",")
+                break
             elif(from_=="chennai" and to_=="kuvathur"):
                 details13={"bus_no":"302",
                         "pickuptime":"8.30",
@@ -173,6 +214,7 @@ class route2(route1):
                         break
                     else:
                         print("@ payment amount was wroung @","pay the correct amount and confirm your ticket",",")
+                break
             elif(from_=="chennai" and to_=="kalpakkam"):
                 details14={"bus_no":"302",
                         "pickuptime":"8.30",
@@ -186,6 +228,8 @@ class route2(route1):
                         break
                     else:
                         print("@ payment amount was wroung @","pay the correct amount and confirm your ticket",",")
+                break
+                
             elif(from_=="chennai" and to_=="mamallalapuram"):
                 details15={"bus_no":"302",
                         "pickuptime":"8.30",
@@ -199,6 +243,7 @@ class route2(route1):
                         break
                     else:
                         print("@ payment amount was wroung @","pay the correct amount and confirm your ticket",",")
+                break
             elif(from_=="chennai" and to_=="navalur"):
                 details16={"bus_no":"302",
                         "pickuptime":"8.30",
@@ -236,6 +281,7 @@ class route3(route2):
                         break
                     else:
                         print("@ payment amount was wroung @","pay the correct amount and confirm your ticket",",")
+                break
             elif(from_=="chennai" and to_=="trichy"):
                 details2={"bus_no":"303",
                         "pickuptime":"8.30",
@@ -249,6 +295,7 @@ class route3(route2):
                         break
                     else:
                         print("@ payment amount was wroung @","pay the correct amount and confirm your ticket",",")
+                break
             elif(from_=="chennai" and to_=="perambalur"):
                 details3={"bus_no":"303",
                         "pickuptime":"8.30",
@@ -262,6 +309,7 @@ class route3(route2):
                         break
                     else:
                         print("@ payment amount was wroung @","pay the correct amount and confirm your ticket",",")
+                break
             elif(from_=="chennai" and to_=="ulundurpet"):
                 details4={"bus_no":"303",
                         "pickuptime":"8.30",
@@ -275,6 +323,7 @@ class route3(route2):
                         break
                     else:
                         print("@ payment amount was wroung @","pay the correct amount and confirm your ticket",",")
+                break
             elif(from_=="chennai" and to_=="dindukkal"):
                 details5={"bus_no":"303",
                         "pickuptime":"8.30",
@@ -288,6 +337,7 @@ class route3(route2):
                         break
                     else:
                         print("@ payment amount was wroung @","pay the correct amount and confirm your ticket",",")
+                break
             elif(from_=="chennai" and to_=="villupuram"):
                 details6={"bus_no":"303",
                         "pickuptime":"8.30",
@@ -310,7 +360,7 @@ print("1)chennai to trichy")
 print("2)chennai to pudhuchery")
 print("3)chennai_to_madurai")
 while True:
-    route=int(input("enter the root:"))
+    route=int(input("Enter your route:"))
     if route==1:
         obj.chennai_to_trichy()
         break
